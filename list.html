@@ -1,0 +1,83 @@
+<!DOCTYPE html>                
+<html lang="en">
+<head>
+	
+	<meta charset="UTF-8">
+	<title></title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   
+ 
+</head>
+<script>
+
+	
+	var ddllist = [
+
+			{nm:"1",no:"11" ,id:"111"},
+			{nm:"1",no:"11" ,id:"112"},
+			{nm:"1",no:"11" ,id:"113"},
+			{nm:"4",no:"44" ,id:"411"},
+			{nm:"4",no:"44" ,id:"412"}
+
+
+	];
+
+	function myFunction(){
+
+		
+
+		let exists={};
+		let result=[];
+
+
+		ddllist.forEach((el)=>{
+			if(!exists[el.no]) {
+				exists[el.no]=true;
+
+				result.push({Type: el.nm, TypeName: el.no});
+
+				document.getElementById('ddl').options.add(new Option(el.nm,el.no));
+			}
+		});
+
+		//alert('zzz');
+
+	}
+
+	function myFunction2(){
+
+
+
+		document.getElementById("dd2").innerHTML = "";
+
+		ddllist.forEach((el)=>{
+
+			if(el.no == document.getElementById('ddl').value){
+
+				document.getElementById('dd2').options.add(new Option(el.id,el.id));
+
+			}
+
+
+			
+		});
+
+	}
+</script>
+<body >
+
+
+<select id="ddl" onchange="myFunction2()" ></select>
+<select id="dd2"  ></select>
+<input type="button" id="myBtn" onclick="myFunction()" value=" 執行 " 
+
+<pre id="demo"></pre>
+
+</body>
+</html>
